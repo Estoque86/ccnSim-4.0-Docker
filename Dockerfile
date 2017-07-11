@@ -54,30 +54,29 @@ RUN apt-get install -y \
 # Create working directory
 RUN mkdir -p /usr/omnetpp
 WORKDIR /usr/omnetpp
-# Fetch Reduce Omntepp-5.0 (no ide and samples)
+# Fetch Reduced Omntepp-5.0 (no ide and samples)
 RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/omnetpp-5.0.tgz
 RUN tar -xf omnetpp-5.0.tgz
 
-# Fetch Omnet++ source
-# (Official mirror doesn't support command line downloads...)
-## (YES) RUN wget https://github.com/ryankurte/docker-omnetpp/raw/master/omnetpp-5.0-src.tgz
-# (NB) We need to put a .tgz file on our git 
-
-# Compilation requires path to be set
+# Set env variables
 ENV PATH $PATH:/usr/omnetpp/omnetpp-5.0/bin
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/omnetpp/omnetpp-5.0/lib
 
-#Configure and compile omnet++
+# Configure and compile omnet++
 RUN cd omnetpp-5.0 && \
     xvfb-run ./configure && \
     make
 
-# Cleanup
-## (YES) RUN apt-get clean && \
-## (YES)   rm -rf /var/lib/apt && \
-## (YES)   rm /usr/omnetpp/omnetpp-5.0-src.tgz
+# Install Boost Libraries
+RUN mkdir -p /usr/boost
+WORKDIR /usr/boost
+RUN wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.bz2
+RUN tar --bzip2 -xf boost_1_57_0.tar.bz2
+RUN cd boost_1_57_0 && \
+    xvfb-run ./bootstrap.sh && \
+    xvfb-run ./b2 install
 
-## ADD ccnSim (download, change directory, and compile)
+## ccnSim-v0.4
 RUN mkdir -p /usr/ccnSim
 WORKDIR /usr/ccnSim
 
@@ -90,3 +89,8 @@ RUN cd ccnSim-0.4 && \
 # Cleanup
 RUN apt-get clean && \
   rm -rf /var/lib/apt
+
+# Cleanup
+## (YES) RUN apt-get clean && \
+## (YES)   rm -rf /var/lib/apt && \
+## (YES)   rm /usr/omnetpp/omnetpp-5.0-src.tgz
