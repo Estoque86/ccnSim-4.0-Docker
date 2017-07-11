@@ -85,7 +85,7 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/omnetpp/lib
 RUN mkdir -p /usr/ccnSim
 WORKDIR /usr/ccnSim
 
-RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/blob/master/ccnSim-0.4.tgz
+RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/ccnSim-0.4.tgz
 RUN tar -xf ccnSim-0.4.tgz
 RUN cd ccnSim-0.4 && \
     xvfb-run ./scripts/makemake.sh && \
