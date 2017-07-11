@@ -85,7 +85,7 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/omnetpp/lib
 RUN mkdir -p /usr/ccnSim
 WORKDIR /usr/ccnSim
 
-RUN wget http://perso.telecom-paristech.fr/~drossi/index.php?n=Software.CcnSim?action=downloadman&upname=ccnSim-0.4.tgz
+RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/blob/master/ccnSim-0.4.tgz
 RUN tar -zxvf ccnSim-0.4.tgz
 RUN cd ccnSim-0.4 && \
     xvfb-run ./scripts/makemake.sh && \
