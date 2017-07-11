@@ -18,6 +18,8 @@ RUN apt-get install -y \
   libxml2-dev \
   zlib1g-dev \
   default-jre \
+  tk-dev \
+  tcl-dev \
   libwebkitgtk-1.0-0 \
   xvfb
 
