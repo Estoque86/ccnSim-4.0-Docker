@@ -33,6 +33,8 @@ RUN apt-get update
 RUN apt-get install -y \
   wget \
   vim \
+  bc \
+  time \
   subversion \
   apache2 \
   libapache2-svn \
@@ -74,17 +76,19 @@ RUN wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.t
 RUN tar -zxvf boost_1_57_0.tar.gz
 RUN cd boost_1_57_0 && \
     xvfb-run ./bootstrap.sh 
-RUN xvfb-run ./b2 install
+RUN ./b2 install
 
 ## ccnSim-v0.4
 RUN mkdir -p /usr/ccnSim
 WORKDIR /usr/ccnSim
 
 RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/ccnSim-0.4.tgz
-RUN tar -xf ccnSim-0.4.tgz
+RUN tar -zxvf ccnSim-0.4.tgz
 RUN cd ccnSim-0.4 && \
     xvfb-run ./scripts/makemake.sh && \
     make
+
+## (NB) Check why Tc file was empty    
 
 # Cleanup
 RUN apt-get clean && \
