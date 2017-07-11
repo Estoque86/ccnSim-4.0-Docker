@@ -37,6 +37,8 @@ RUN apt-get install -y \
   apache2 \
   libapache2-svn \
   build-essential \
+  gcc \
+  g++ \
   clang \
   bison \
   flex \
@@ -52,29 +54,23 @@ RUN apt-get install -y \
 # Create working directory
 RUN mkdir -p /usr/omnetpp
 WORKDIR /usr/omnetpp
-# Fetch pre-compiled binaries and libs (already patched for ccnSim)
-RUN svn export https://github.com/Estoque86/ccnSim-4.0-Docker/trunk/bin bin
-RUN svn export https://github.com/Estoque86/ccnSim-4.0-Docker/trunk/lib lib
+# Fetch Reduce Omntepp-5.0 (no ide and samples)
+RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/omnet-5.0.tgz
+RUN tar -xf omnet-5.0.tgz
 
 # Fetch Omnet++ source
 # (Official mirror doesn't support command line downloads...)
 ## (YES) RUN wget https://github.com/ryankurte/docker-omnetpp/raw/master/omnetpp-5.0-src.tgz
 # (NB) We need to put a .tgz file on our git 
 
-
-## (YES) RUN tar -xf omnetpp-5.0-src.tgz
-
 # Compilation requires path to be set
-## (YES)ENV PATH $PATH:/usr/omnetpp/omnetpp-5.0/bin
-## (YES)ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/omnetpp/omnetpp-5.0/lib
+ENV PATH $PATH:/usr/omnetpp/omnetpp-5.0/bin
+ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/omnetpp/omnetpp-5.0/lib
 
-ENV PATH $PATH:/usr/omnetpp/bin
-ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/omnetpp/lib
-
-# Configure and compile omnet++
-## (YES) RUN cd omnetpp-5.0 && \
-## (YES)     xvfb-run ./configure WITH_TKENV=no WITH_QTENV=no && \
-## (YES)     make
+#Configure and compile omnet++
+RUN cd omnetpp-5.0 && \
+    xvfb-run ./configure && \
+    make
 
 # Cleanup
 ## (YES) RUN apt-get clean && \
