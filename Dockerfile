@@ -55,8 +55,8 @@ RUN apt-get install -y \
 RUN mkdir -p /usr/omnetpp
 WORKDIR /usr/omnetpp
 # Fetch Reduce Omntepp-5.0 (no ide and samples)
-RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/omnet-5.0.tgz
-RUN tar -xf omnet-5.0.tgz
+RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/omnetpp-5.0.tgz
+RUN tar -xf omnetpp-5.0.tgz
 
 # Fetch Omnet++ source
 # (Official mirror doesn't support command line downloads...)
