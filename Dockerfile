@@ -70,11 +70,11 @@ RUN cd omnetpp-5.0 && \
 # Install Boost Libraries
 RUN mkdir -p /usr/boost
 WORKDIR /usr/boost
-RUN wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.bz2
-RUN tar --bzip2 -xf boost_1_57_0.tar.bz2
+RUN wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.gz
+RUN tar -zxvf boost_1_57_0.tar.gz
 RUN cd boost_1_57_0 && \
-    xvfb-run ./bootstrap.sh && \
-    xvfb-run ./b2 install
+    xvfb-run ./bootstrap.sh 
+RUN xvfb-run ./b2 install
 
 ## ccnSim-v0.4
 RUN mkdir -p /usr/ccnSim
