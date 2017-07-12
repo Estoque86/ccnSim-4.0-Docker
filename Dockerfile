@@ -88,9 +88,9 @@ WORKDIR /usr/ccnSim
 
 RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/ccnSim-0.4.tgz
 RUN tar -zxvf ccnSim-0.4.tgz
-RUN cd ccnSim-0.4 && \
-    xvfb-run ./scripts/makemake.sh && \
-    make
+WORKDIR /usr/ccnSim-0.4
+RUN ./scripts/makemake.sh 
+RUN make
 
 ## (NB) Check why Tc file was empty    
 
