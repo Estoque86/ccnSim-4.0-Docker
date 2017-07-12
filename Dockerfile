@@ -88,7 +88,7 @@ WORKDIR /usr/ccnSim
 
 RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/ccnSim-0.4.tgz
 RUN tar -zxvf ccnSim-0.4.tgz
-WORKDIR /usr/ccnSim-0.4
+WORKDIR /usr/ccnSim/ccnSim-0.4
 RUN ./scripts/makemake.sh 
 RUN make
 
