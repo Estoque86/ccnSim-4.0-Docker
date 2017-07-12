@@ -45,7 +45,10 @@ RUN apt-get install -y \
   bison \
   flex \
   perl \
+  python-dev \
   libxml2-dev \
+  libxslt-dev \
+  libbz2-dev \
   zlib1g-dev \
   default-jre \
   libwebkitgtk-1.0-0 \
