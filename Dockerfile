@@ -76,6 +76,7 @@ RUN wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.t
 RUN tar -zxvf boost_1_57_0.tar.gz
 RUN cd boost_1_57_0 && \
     xvfb-run ./bootstrap.sh 
+WORKDIR /usr/boost/boost_1_57_0
 RUN ./b2 install
 
 ## ccnSim-v0.4
