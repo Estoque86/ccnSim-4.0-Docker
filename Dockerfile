@@ -1,6 +1,6 @@
-#FROM ubuntu:latest  
+#FROM phusion/baseimage:0.9.22
 # To be replaced with a specific version of Ubuntu
-FROM phusion/baseimage:0.9.22
+FROM ubuntu:latest  
 MAINTAINER Michele Tortelli <michele.tortelli@telecom-paristech.fr>
 LABEL Description="Docker image for ccnSim-v4.0 simulator"
 
