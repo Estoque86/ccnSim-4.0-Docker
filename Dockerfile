@@ -4,7 +4,7 @@ FROM ubuntu:latest
 MAINTAINER Michele Tortelli <michele.tortelli@telecom-paristech.fr>
 LABEL Description="Docker image for ccnSim-v4.0 simulator"
 
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
 
 #RUN apt-get update
 
@@ -41,7 +41,8 @@ RUN apt-get update && \
   libbz2-dev \
   zlib1g-dev \
   default-jre \
-  libwebkitgtk-1.0-0 
+  libwebkitgtk-1.0-0 \
+  && rm -rf /var/lib/apt/lists/*
 
 
 # OMNeT++ 5.0
