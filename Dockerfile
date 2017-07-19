@@ -42,7 +42,11 @@ RUN apt-get update && \
   zlib1g-dev \
   default-jre \
   libwebkitgtk-1.0-0 \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get remove xserver-xorg-core \
+  && apt-get autoremove
+#  sudo apt-get remove xserver-xorg-core && \
+#  sudo apt-get autoremove
 
 
 # OMNeT++ 5.0
@@ -71,11 +75,10 @@ RUN wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.t
     cd boost_1_57_0 && \
     ./bootstrap.sh && \
     cd /usr/boost/boost_1_57_0 && \
-    ./b2 install
-#WORKDIR /usr/boost/boost_1_57_0
-#RUN ./b2 install
+    ./b2 install && \
+    cd /usr && \
+    rm -r /usr/boost/
 
-## ccnSim-v0.4
 RUN mkdir -p /usr/ccnSim
 WORKDIR /usr/ccnSim
 
@@ -86,12 +89,6 @@ RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/ccnSim-0.4.tg
     ./scripts/makemake.sh && \
     cd /usr/ccnSim/ccnSim-0.4 && \
     make
-
-#WORKDIR /usr/ccnSim/ccnSim-0.4
-#RUN ./scripts/makemake.sh 
-#RUN make
-
-## (NB) Check why Tc file was empty    
 
 # Cleanup
 RUN apt-get clean && \
