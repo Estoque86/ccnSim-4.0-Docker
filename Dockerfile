@@ -90,6 +90,8 @@ RUN wget https://github.com/Estoque86/ccnSim-4.0-Docker/raw/master/ccnSim-0.4.tg
     cd /usr/ccnSim/ccnSim-0.4 && \
     make
 
+WORKDIR /usr/ccnSim/ccnSim-0.4
+
 # Cleanup
 RUN apt-get clean && \
   rm -rf /var/lib/apt /tmp/* /var/tmp/*
