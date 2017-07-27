@@ -21,10 +21,10 @@ $ sudo add-apt-repository "deb [arch=amd64] \
 https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 Update the package database with the Docker packages from the newly added repo:
-$ sudo apt-get update
+    sudo apt-get update
 
 Make sure you are about to install from the Docker repo instead of the default Ubuntu 16.04 repo:
-$ apt-cache policy docker-ce
+    apt-cache policy docker-ce
 
 Install Docker:
 $ sudo apt-get install -y docker-ce
@@ -42,13 +42,13 @@ no need to install
 ## Load the fetched image
 
 * OS X
-$ gunzip -c dk-ccnsim-04.tar.gz | sudo docker load
+    gunzip -c dk-ccnsim-04.tar.gz | sudo docker load
 
 * Ubuntu
-$ zcat dk-ccnsim-04.tar.gz | sudo docker load
+    zcat dk-ccnsim-04.tar.gz | sudo docker load
 
 In both platforms, you should be able to see the imported image by typing:
-$ sudo docker images 
+    sudo docker images 
 
 
 ##  Create your working directory
