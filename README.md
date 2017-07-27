@@ -31,6 +31,11 @@ Now you can install Docker:
 
     sudo apt-get install -y docker-ce
 
+Follow instructions in the usual guides to let Docker run without super user privileges:
+* https://docs.docker.com/engine/installation/linux/linux-postinstall/
+
+Note: We cannot absolutely provide help on installing and setting up Docker for your favorite distribution!
+
 
 ##  Fetch ccnSim Docker image
 
