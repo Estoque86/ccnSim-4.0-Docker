@@ -1,9 +1,9 @@
-This is the GitHub repository containing the (stripped down and already patched) Omnetpp image as well as the Dockerfile needed to build the Docker image that is available at [https://hub.docker.com/r/nonsns/ccnsim-0.4/](DockerHub)
+This is the GitHub repository containing the (stripped down and already patched) Omnetpp-5.0 and ccnSim-0.4 tarballs as well as the Dockerfile needed to build the Docker image that is available at [https://hub.docker.com/r/nonsns/ccnsim-0.4/](DockerHub)
 
 This is not ment to be used by a final user, so rush to [https://hub.docker.com/r/nonsns/ccnsim-0.4/](DockerHub) instead!  
+The rest of this file contains instructions useful for using, and not creating, DockerHub images.
 
-
-
+---
 
 # Instructions to use a ccnSim-0.4 container 
 
