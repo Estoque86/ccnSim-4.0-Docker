@@ -60,7 +60,13 @@ $ mkdir results logs infoSim
 
 ## Run the ccnSim container
 
-$ sudo docker run -ti -v $(pwd)/infoSim:/usr/ccnSim/ccnSim-0.4/infoSim/ -v $(pwd)/results:/usr/ccnSim/ccnSim-0.4/results/ -v $(pwd)/logs:/usr/ccnSim/ccnSim-0.4/logs/ ccnsim-0.4-docker /bin/bash
+* DockerHub
+
+$ sudo docker run -ti -v $(pwd)/infoSim:/usr/ccnSim/ccnSim-0.4/infoSim/ -v $(pwd)/results:/usr/ccnSim/ccnSim-0.4/results/ -v $(pwd)/logs:/usr/ccnSim/ccnSim-0.4/logs/ nonsns/ccnsim-0.4 /bin/bash
+
+* Local image
+
+$ sudo docker run -ti -v $(pwd)/infoSim:/usr/ccnSim/ccnSim-0.4/infoSim/ -v $(pwd)/results:/usr/ccnSim/ccnSim-0.4/results/ -v $(pwd)/logs:/usr/ccnSim/ccnSim-0.4/logs/ ccnSim-0.4-dockerimage.tar.gz /bin/bash
 
 With the command above we launch the ccnSim container in “interactive” mode, by specifying three “volumes” (i.e., logs, results, infoSim) which will be mounted from the local directory on the host machine each time the container is launched. 
 Therefore, at each startup of the ccnSim container, files present in the specified volumes will be copied inside the respective directories of the container. 
