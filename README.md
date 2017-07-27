@@ -73,34 +73,29 @@ or create a tar.gz for alternative distribution methods:
 
 # Instructions to use a ccnSim-0.4 container <a id="#use"></a>
 
-These instructions will guide you through setting up the Docker environment to quickly launch ccnSim-0.4 simulation without (the hassle of patching Omnetpp, downloading the required librairies,  compiling the code, etc.)  using the ccnSim-0.4 image hosted on DockerHub  https://hub.docker.com/r/nonsns/ccnsim-0.4/
+These instructions will guide you through setting up the Docker environment to quickly launch ccnSim-0.4 simulations using the ccnSim-0.4 image hosted on DockerHub https://hub.docker.com/r/nonsns/ccnsim-0.4/ (meaning no hassle in patching Omnetpp, downloading the required librairies, compiling the code, etc.)  
 
 Note: The container does not support the graphical interface. But, trust us, you do not need it anyway ;)
 
 ##  Fetch ccnSim Docker image
 
-
 Simply issue this command to load the image in your system:
 
     docker pull nonsns/ccnsim-0.4
-
 
 You can check that the image is correctly imported by typing:
 
     docker images 
 
-
 ##  Setup your environment 
 
-Create the working directory (e.g., ccnsim-0.4 in the example) and the 3 subfolders where the results will be written 
+Create the working directory (e.g., ccnsim-0.4 in the example) and the 3 subfolders where results will be written: 
 
     mkdir ccnsim-0.4 && cd ccnsim-0.4 && mkdir results logs infoSim
 
 Test that the ccnSim container works by running it in “interactive” mode, i.e., giving you access to a bash shell in the ccnsim-0.4 folder from which simulations can be launched. The next command also specifyes three “volumes” (i.e., the just created logs, results and infoSim folders) which will be mounted from the local directory on the host machine (so that you can access simulation results also from the host). 
 
     docker run -ti -v $(pwd)/infoSim:/usr/ccnSim/ccnSim-0.4/infoSim/ -v $(pwd)/results:/usr/ccnSim/ccnSim-0.4/results/ -v $(pwd)/logs:/usr/ccnSim/ccnSim-0.4/logs/ nonsns/ccnsim-0.4 /bin/bash
-
-
 
 ## Launch a sample simulation
 
@@ -115,7 +110,7 @@ run the following command to get the ID of the running container:
 
     docker ps 
     
-Then reattach:
+Then re-attach:
 
     docker attach containerID
 
@@ -129,9 +124,7 @@ While the above process is useful to start your first simulation, it is signific
 
     docker run -ti -v $(pwd)/infoSim:/usr/ccnSim/ccnSim-0.4/infoSim/ -v $(pwd)/results:/usr/ccnSim/ccnSim-0.4/results/ -v $(pwd)/logs:/usr/ccnSim/ccnSim-0.4/logs/ nonsns/ccnsim-0.4 bash ./runsim_script_ED_TTL.sh tree 8 1 spr lce ttl 1 1e5 1e5 1e8 1e8 20.0 IRM IRM 0 0 cold naive 0.75 1e4 
     
-    
-You can find simulation output in the infoSim, results and log folders in your current working directory.
-     
+You can find simulation output in infoSim, results and logs folders in your current working directory.   
 
 ## Have fun!
 
