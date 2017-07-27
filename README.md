@@ -44,13 +44,20 @@ These instructions are ment for the ccnSim contributors; they are not expected t
 
 ## Build the image from the Dockerfile 
 
+After having cloned this repository, you can build the ccnsim-0.4-docker image by using the provided Dockerfile (from the ccnSim-0.4-docker directory):
+
+    docker build -t ccnsim-0.4-docker .
 
 ## Debug the process  
 
+The above process might take some time to complete, since all the required libraries and softwares need to be fetched and compiled. 
+In case of an error in the building process, an incomplete container is created with a temporary containerID (which can be fetched through the docker images command). This can be useful to run the container in interactive mode and investigate the reasons of the error:
+
+    docker run -ti containerID /bin/bash
 
 ## Push the image to the repository
 
-Ultimately, once the image is ready you can push it to DockerHub with:
+Ultimately, once the image is ready, you can either push it to DockerHub with:
 
     docker login
 
@@ -58,7 +65,10 @@ Ultimately, once the image is ready you can push it to DockerHub with:
 
     docker pull nonsns/ccnsim-0.4
 
+or create a tar.gz for alternative distribution methods:
 
+    docker save ccnsim-0.4-docker | gzip > ccnsim-0.4-docker-image.tar.gz
+    
 ---
 
 # Instructions to use a ccnSim-0.4 container <a id="#use"></a>
