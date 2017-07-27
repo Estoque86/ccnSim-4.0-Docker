@@ -5,7 +5,7 @@ The rest of this file contains a minimum set of instructions useful to [#create]
 
 ---
 
-# [Instructions to create the ccnSim-0.4 container](#create)
+# Instructions to create the ccnSim-0.4 container <a id="#create"></a>
 
 These instructions are ment for the ccnSim contributors; they are not expected to be useful for the ccnSim users, which should instead check the instructions on how to [#use](use) the DockerHub images.
 
@@ -28,7 +28,7 @@ Ultimately, once the image is ready you can push it to DockerHub with:
 
 ---
 
-# [Instructions to use a ccnSim-0.4 container](#use)
+# Instructions to use a ccnSim-0.4 container <a id="#use"></a>
 
 These instructions will guide you through setting up the Docker environment to quickly launch ccnSim-0.4 simulation without (the hassle of patching Omnetpp, downloading the required librairies,  compiling the code, etc.)  using the ccnSim-0.4 image hosted on DockerHub  https://hub.docker.com/r/nonsns/ccnsim-0.4/
 
