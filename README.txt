@@ -1,0 +1,75 @@
+Containerized ccnSim-0.4
+
+### Get ready with ccnSim-0.4 in few steps! ###
+
+1) Install Docker on your platform
+
+– Ubuntu 16.04 –
+ 
+Add the GPG key for the official Docker repository to the system:
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo \
+apt-key add -
+
+Add the Docker repository to APT sources:
+$ sudo add-apt-repository "deb [arch=amd64] \
+https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+Update the package database with the Docker packages from the newly added repo:
+$ sudo apt-get update
+
+Make sure you are about to install from the Docker repo instead of the default Ubuntu 16.04 repo:
+$ apt-cache policy docker-ce
+
+Install Docker:
+$ sudo apt-get install -y docker-ce
+
+
+– OS X –
+Please follow instructions at: https://docs.docker.com/docker-for-mac/install/
+
+
+2) Fetch ccnSim Docker image
+
+http://perso.telecom-paristech.fr/~tortelli/documents/dk-ccnsim-04.tar.gz
+
+3) Load the fetched image
+
+(Ubuntu)
+$ zcat dk-ccnsim-04.tar.gz | sudo docker load
+
+(OS X)
+$ gunzip -c dk-ccnsim-04.tar.gz | sudo docker load
+You should be able to see the imported image by typing:
+$ sudo docker images 
+
+4) Create your working directory
+
+$ mkdir ccnsim-0.4
+$ cd ccnsim-0.4
+$ mkdir results logs infoSim
+
+
+5) Run the ccnSim container
+
+$ sudo docker run -ti -v $(pwd)/infoSim:/usr/ccnSim/ccnSim-0.4/infoSim/ -v $(pwd)/results:/usr/ccnSim/ccnSim-0.4/results/ -v $(pwd)/logs:/usr/ccnSim/ccnSim-0.4/logs/ ccnsim-0.4-docker /bin/bash
+
+With the command above we launch the ccnSim container in “interactive” mode, by specifying three “volumes” (i.e., logs, results, infoSim) which will be mounted from the local directory on the host machine each time the container is launched. 
+Therefore, at each startup of the ccnSim container, files present in the specified volumes will be copied inside the respective directories of the container. 
+
+6) Launch a sample simulation
+
+We are going to simulate a relatively small scenario (M=108 contents, tree topology).
+
+$ ./runsim_script_ED_TTL.sh tree 8 1 spr lce ttl 1 1e6 1e6 1e9 1e9 20.0 IRM IRM 0 0 cold naive 0.75 1e5
+
+Please have look at the ccnSim-0.4 manual (http://perso.telecom-paristech.fr/~drossi/index.php?n=Software.CcnSim?action=downloadman&upname=ccnSim-v0.4-Manual.pdf) for a complete description of the simulation process.
+
+7) Detach/Attach 
+
+$ Ctrl+p, Ctrl+q
+$ sudo docker ps (you should see the running container)
+$ sudo docker attach containerID
+
+$ exit (will exit the container prompt and stop the respective process)
+
+
