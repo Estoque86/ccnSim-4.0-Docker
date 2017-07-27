@@ -5,37 +5,7 @@ The rest of this file contains a minimum set of instructions useful to [create](
 
 ---
 
-# Instructions to create the ccnSim-0.4 container <a id="#create"></a>
-
-These instructions are ment for the ccnSim contributors; they are not expected to be useful for the ccnSim users, which should instead check the instructions on how to [use](#use) the DockerHub images.
-
-## Build the image from the Dockerfile 
-
-
-## Debug the process  
-
-
-## Push the image to the repository
-
-Ultimately, once the image is ready you can push it to DockerHub with:
-
-    docker login
-
-    docker tag ccnsim-0.4-docker nonsns/ccnsim-0.4
-
-    docker pull nonsns/ccnsim-0.4
-
-
----
-
-# Instructions to use a ccnSim-0.4 container <a id="#use"></a>
-
-These instructions will guide you through setting up the Docker environment to quickly launch ccnSim-0.4 simulation without (the hassle of patching Omnetpp, downloading the required librairies,  compiling the code, etc.)  using the ccnSim-0.4 image hosted on DockerHub  https://hub.docker.com/r/nonsns/ccnsim-0.4/
-
-Note: The container does not support the graphical interface. But, trust us, you do not need it anyway ;)
-
-
-## Install Docker on your platform
+# Instructions to install Docker on your platform
 
 For Microsoft Windows, please install one of the folloiwng OSes and come back later.
 
@@ -66,6 +36,36 @@ Follow instructions in the usual guides to let Docker run without super user pri
 
 Note: We cannot absolutely provide help on installing and setting up Docker for your favorite distribution!
 
+---
+
+# Instructions to create the ccnSim-0.4 container <a id="#create"></a>
+
+These instructions are ment for the ccnSim contributors; they are not expected to be useful for the ccnSim users, which should instead check the instructions on how to [use](#use) the DockerHub images.
+
+## Build the image from the Dockerfile 
+
+
+## Debug the process  
+
+
+## Push the image to the repository
+
+Ultimately, once the image is ready you can push it to DockerHub with:
+
+    docker login
+
+    docker tag ccnsim-0.4-docker nonsns/ccnsim-0.4
+
+    docker pull nonsns/ccnsim-0.4
+
+
+---
+
+# Instructions to use a ccnSim-0.4 container <a id="#use"></a>
+
+These instructions will guide you through setting up the Docker environment to quickly launch ccnSim-0.4 simulation without (the hassle of patching Omnetpp, downloading the required librairies,  compiling the code, etc.)  using the ccnSim-0.4 image hosted on DockerHub  https://hub.docker.com/r/nonsns/ccnsim-0.4/
+
+Note: The container does not support the graphical interface. But, trust us, you do not need it anyway ;)
 
 ##  Fetch ccnSim Docker image
 
