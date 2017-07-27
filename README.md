@@ -40,7 +40,7 @@ Note: We cannot absolutely provide help on installing and setting up Docker for 
 
 # Instructions to create the ccnSim-0.4 container <a id="#create"></a>
 
-These instructions are ment for the ccnSim contributors; they are not expected to be useful for the ccnSim users, which should instead check the instructions on how to [use](#use) the DockerHub images.
+These instructions are ment for the ccnSim contributors; they are not expected to be useful for the ccnSim users, who should instead check the instructions on how to [use](#use) the DockerHub images.
 
 ## Build the image from the Dockerfile 
 
