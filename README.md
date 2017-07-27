@@ -5,7 +5,13 @@ The rest of this file contains a minimum set of instructions useful to create an
 
 ---
 
-# Instructions to use a ccnSim-0.4 container 
+# Instructions to create the ccnSim-0.4 container 
+
+## Build the image from the Dockerfile 
+
+
+## Debug the process  
+
 
 ## Push the image to the repository
 
