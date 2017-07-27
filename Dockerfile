@@ -24,7 +24,6 @@ RUN apt-get update && \
   default-jre \
   libwebkitgtk-1.0-0 \
   && rm -rf /var/lib/apt/lists/* \
-  && apt-get remove xserver-xorg-core \
   && apt-get autoremove
 
 # Set env variables
